@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="5" >
+    <title>Gas App</title>
+    <link rel="Stylesheet" href="estilos.css"> 
+    <link href='https://fonts.googleapis.com/css?family=Baloo Thambi' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bevan' rel='stylesheet'>
+</head>
+<body>
+    <header>
+    <h1>Gas Security Home</h1>
+    </header>
+    <!-- Hay que cambiarlo por valor arduino -->
+    <nav id="pegar">
+        <h2 class="queda">Te queda:</h2>
+        <p class="centro"><img src="cilindro1.png" alt="GasLleno" style="width:170px;height:170px;margin-left:15px;">60%</p>
+    </nav>
+    <!-- cortes automaticos trabajar con memoria del arduino -->
+    <table id="customers">
+        
+        
+    </table>
+    <script>
+        var contenido = document.querySelector('#pegar')
+    </script>
+
+    <!-- ahora viene las imagenes botones para dar o cortar Gas -->
+
+
+    <!-- listo! -->
+
+
+    <script>
+        var contenido = document.querySelector('#customers')
+        fetch('http:/192.168.2.200')
+        .then(res => res.json())
+        .then(data => {
+            contenido.innerHTML =`
+            <tr>
+            <th>Peso:</th>
+            <th>${data.Peso}</th> 
+            <th>Hora</th>
+            </tr>
+            <tr>
+            <td>Sensor de Gas:</td>
+            <td>${data.Gas}</td>
+            <td>18:45</td>
+             `
+            console.log(data)
+            })
+    </script>
+</body>
+</html>
